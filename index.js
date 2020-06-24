@@ -39,7 +39,7 @@ function addRole () {
         {
             message:"What is the salary?",
             type: "input",
-            name: "salary"
+            name: "salary",
             validate: (value) =>{
                 return !isNaN(value) ? true : "Please provide a number value.";
             }
@@ -48,7 +48,7 @@ function addRole () {
         {
             message:"What department does the role belong to?",
             type: "list",
-            name: "department_id"
+            name: "department_id",
             choices: results.map (department => {
                 return {
                     name: department.name,
@@ -69,31 +69,35 @@ function addRole () {
         
     });
 
-}
+},
 
-function addEmployee () {
+// function addEmployee () {
 
 
-}
+// }
 
-function addRole(){
+// function addRole(){
 
-}
+// }
 
-// // View departments, roles, employees
-function viewDepartment () {
+// // // View departments, roles, employees
+// function viewDepartment () {
 
-}
+// }
 
-function viewRole () {
+// function viewRole () {
 
-}
+// }
 
-function viewEmployee() {
+// function viewEmployee() {
 
-}
-// Update employee roles
-function updateEmployeeRoles () {
+// }
+// // Update employee roles
+// function updateEmployeeRoles () {
 
-}
-addDepartment();
+// }
+
+addDepartment() 
+)}
+
+
