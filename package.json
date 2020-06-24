@@ -16,5 +16,9 @@
   "bugs": {
     "url": "https://github.com/edatez/Employee_Tracker/issues"
   },
-  "homepage": "https://github.com/edatez/Employee_Tracker#readme"
+  "homepage": "https://github.com/edatez/Employee_Tracker#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mysql": "^2.18.1"
+  }
 }
