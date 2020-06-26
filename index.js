@@ -69,7 +69,6 @@ function addRole () {
         
     });
 
-},
 
 // function addEmployee () {
 
@@ -96,8 +95,10 @@ function addRole () {
 // function updateEmployeeRoles () {
 
 // }
+addEmployee();
+addRole();
+// INSERT IGNORE INTO yourTableName1 select *from yourTableName2;
 
-addDepartment() 
-)}
 
-
+// addDepartment() 
+// )}
