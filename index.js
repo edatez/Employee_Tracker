@@ -1,10 +1,60 @@
 const connection = require("./db/connection");
 const inquirer = require("inquirer");
 const mysql = require("mysql");
-const logo = require('asciiart-logo');
-const config = require('./package.json');
+const logo = require("asciiart-logo");
+const config = require("./package.json");
 
 console.log(logo(config).render());
+
+function menu() {
+  inquirer
+  .prompt([
+      {
+          message: "What would you like to do?",
+          type: "list",
+          name: "prompt",
+          choices: [
+              "Add department", 
+              "Add role", 
+              "Add employee", 
+              "View departments", 
+              "View roles",
+              "View employees",
+              "Update employee roles",
+          ]
+      },
+  ])
+  .then( (res) => {
+      if (res.prompt === "Add department") {
+        addDepartment()
+      }
+      else if (res.prompt === "Add role") {
+          addRole()
+      }
+      else if (res.prompt === "Add employee") {
+        addEmployee()
+      }
+      else if (res.prompt === "View departments") {
+        viewDepartment()
+      }
+      else if (res.prompt === "View roles") {
+        viewRoles()
+      }
+      else if (res.prompt === "View employees") {
+          viewEmployee()
+      }
+      else if (res.prompt === "Update employee roles") {
+          updateEmployeeRoles()
+      }
+  })
+}
+
+// addRole()
+// addDept()
+// updateEmployeeRoles()
+
+
+// menu  (view employee view role view dept  add role add dep add emp )
 
 // Add departments, roles, employees
 function addDepartment() {
@@ -75,7 +125,6 @@ function addRole() {
 function addEmployee() {
   getRoles((roles) => {
     getEmployees((employees) => {
-        
       employeeSelections = employees.map((employee) => {
         return {
           name: employee.first_name + " " + employee.last_name,
@@ -87,6 +136,7 @@ function addEmployee() {
 
       inquirer
         .prompt([
+
           {
             message: "First Name",
             type: "input",
@@ -102,7 +152,8 @@ function addEmployee() {
             type: "list",
             name: "role_id",
 
-            choices: results.map((role) => {
+            choices: roles.map((role) => {  // where  are you  geting results
+              // I am not sure if i need to have some data at the mysql . i am sorry i cant hear anything. i can restart. 
               console.log(role);
               return {
                 name: role.title,
@@ -125,6 +176,7 @@ function addEmployee() {
               if (err) throw err;
 
               console.log("Inserted as ID " + result.insertId);
+              menu()
             }
           );
         });
@@ -150,16 +202,16 @@ function getEmployees(cb) {
 function viewDepartment() {}
 
 function viewRoles() {
-    getRoles((roles)=>{
-        // Loop over the roles and print info from each one to the terminal
-        console.table(roles);
-    });
+  getRoles((roles) => {
+    // Loop over the roles and print info from each one to the terminal
+    console.table(roles);
+  });
 }
 
-function viewEmployee() {
-
-}
+function viewEmployee() {}
 // // Update employee roles
 function updateEmployeeRoles() {}
 
-addEmployee();
+//addEmployee();
+
+menu();

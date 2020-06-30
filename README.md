@@ -1,10 +1,10 @@
 # Employee Tracker
 An application for managing a company's employees using node, inquirer, and MySQL.
-
+![Employee Tracker](assets\Capture-1.PNG)
 
 ## Details of the design:
 It contains a DataBase schema containing three tables:
-![Database Schema](Assets/schema.png)
+![Database Schema](assets/schema.png)
 
   
 The command-line application allows the user to:
@@ -32,7 +32,7 @@ So that I can organize and plan my business
 ```
 
 
-![Employee Tracker](Assets/employee-tracker.gif)
+![Employee Tracker](assets/employee-tracker.gif)
 
 
 
