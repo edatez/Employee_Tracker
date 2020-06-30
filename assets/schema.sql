@@ -14,7 +14,8 @@ CREATE TABLE role (
     title VARCHAR(30) NOT NULL,
     salary DECIMAL NOT NULL,
     department_id INT NOT NULL,
-
+    PRIMARY KEY (id)
+);
 
 CREATE TABLE employee (
     id INT AUTO_INCREMENT NOT NULL,
@@ -24,3 +25,6 @@ CREATE TABLE employee (
     manager_id INT NOT NULL,
     PRIMARY KEY (id)
 );
+INSERT INTO department (name) VALUES ("Accounting");
+
+SELECT * FROM role;
