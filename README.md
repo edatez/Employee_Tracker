@@ -1,12 +1,12 @@
 # Employee Tracker
 An application for managing a company's employees using node, inquirer, and MySQL.
 
-![Employee Tracker](assets\Recording.gif)
+![Employee Tracker](assets/Recording.gif)
 
 
 ## To Start:
 
-Please add your own password to connect with MySql at this file; ![Employee Tracker](db\connection.js)
+Please add your own password to connect with MySql at this file; ![Employee Tracker](db/connection.js)
 
 The application will be invoked with the following command:
 
@@ -39,7 +39,7 @@ As a business owner
 I want to be able to view and manage the departments, roles, and employees in my company
 So that I can organize and plan my business
 ```
-![Employee Tracker](assets\Capture-1.PNG)
+![Employee Tracker](assets/Capture-1.PNG)
 
 ![Employee Tracker](assets/employee-tracker.gif)
 
