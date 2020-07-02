@@ -49,13 +49,6 @@ function menu() {
   })
 }
 
-// addRole()
-// addDept()
-// updateEmployeeRoles()
-
-
-// menu  (view employee view role view dept  add role add dep add emp )
-
 // Add departments, roles, employees
 function addDepartment() {
   inquirer
@@ -152,8 +145,7 @@ function addEmployee() {
             type: "list",
             name: "role_id",
 
-            choices: roles.map((role) => {  // where  are you  geting results
-              // I am not sure if i need to have some data at the mysql . i am sorry i cant hear anything. i can restart. 
+            choices: roles.map((role) => {               
               console.log(role);
               return {
                 name: role.title,
