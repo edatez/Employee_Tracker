@@ -86,9 +86,9 @@ function addRole() {
           message: "What is the salary?",
           type: "input",
           name: "salary",
-          // validate: (value) =>{
-          //     return !isNaN(value) ? true : "Please provide a number value.";
-          // }
+          validate: (value) =>{
+              return !isNaN(value) ? true : "Please provide a number value.";
+          }
         },
         {
           message: "What department does the role belong to?",
@@ -104,8 +104,8 @@ function addRole() {
       ])
       .then((response) => {
         connection.query(
-          "INSERT INTO role SET?",
-          response.departmentName,
+          "INSERT INTO role SET ?",
+          response,
           (err, result) => {
             if (err) throw err;
             console.log("Inserted as ID " + result.insertId);
