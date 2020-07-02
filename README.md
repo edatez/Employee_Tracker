@@ -6,7 +6,7 @@ An application for managing a company's employees using node, inquirer, and MySQ
 
 ## To Start:
 
-Please add your own password to connect with MySql at this file; ![Employee Tracker](db/connection.js)
+Please add your own password to connect with MySql at this file; ![Connection.js](db/connection.js)
 
 The application will be invoked with the following command:
 
