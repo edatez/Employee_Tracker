@@ -199,19 +199,69 @@ function getEmployees(cb) {
 }
 
 // // // View departments, roles, employees
-function viewDepartment() {}
-
-function viewRoles() {
-  getRoles((roles) => {
-    // Loop over the roles and print info from each one to the terminal
-    console.table(roles);
+function viewDepartment(){
+  connection.query("SELECT * FROM department", (err,results) =>{
+      if(err) throw err;
+      console.table(results)
+      menu()
   });
+  }
+
+  function viewRoles(){
+    getRoles((roles)=>{
+          //loop over the roles and print info from each one to the terminal 
+          console.table(roles);
+         menu();
+    });
+  }  
+function viewEmployee() {
+  getEmployees((employees)=>{
+    console.table(employees);
+    menu();
+});  
 }
-
-function viewEmployee() {}
 // // Update employee roles
-function updateEmployeeRoles() {}
+function updateEmployeeRoles(){
+      
+  getEmployees((employees)=>{
+      employeeSelections=employees.map(employee =>{
+      return{
+          name:employee.first_name + ' ' +employee.last_name,
+          value:employee.id
+      };
+      });
+  });
 
-//addEmployee();
+  getRoles((roles)=>{
+      inquirer.prompt([
+              {
+                  message:"Which employee's role do you want to update?",
+                  type:"list",
+                  name:"id",
+                  choices: employeeSelections
+              },
+              {
+                  message:"What is the new role of this employee?",
+                  type:"list",
+                  name:"role_id",
+                  choices: roles.map(role =>{
+                      return{
+                          name:role.title ,
+                          value:role.id
+                      };
+                  })
+              },
+          ]).then((response)=>{
+              console.log(response)
+              connection.query(`UPDATE employee SET role_id = ${response.role_id} WHERE id =  ${response.id}`, (err,result)=>{
+                  if(err) throw err;
+                  console.log(result.affectedRows + " employee role updated.");
+              });
+
+              menu()
+          });
+  });
+
+}
 
 menu();
